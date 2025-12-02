@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secunderabad Station Info</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        h1 {
+            background-color: #0078d7;
+            color: white;
+            padding: 20px;
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 10px;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #0078d7;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Chatbot Widget */
+        #ease-bot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 320px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        #bot-header {
+            background: #0078d7;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 12px 12px 0 0;
+        }
+
+        #bot-body {
+            display: none;
+            padding: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        #bot-messages {
+            text-align: left;
+            padding: 10px;
+            height: 250px;
+            overflow-y: auto;
+        }
+
+        #bot-input {
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        #send-button {
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            padding: 8px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #send-button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            #ease-bot {
+                width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Secunderabad Station</h1>
+    
+    <div class="container">
+        <div class="section">
+            <h2>Facilities</h2>
+            <img src="static/images/food.jpg" alt="Facilities">
+            <p>Find ticket counters, restrooms, and food courts.</p>
+            <a href="/facility-finder" class="btn-primary">View Facilities</a>
+        </div>
+        
+        <div class="section">
+            <h2>Live Train Updates</h2>
+            <img src="static/images/live.jpg" alt="Live Train Updates">
+            <p>Get real-time updates on train schedules.</p>
+            <main>
+                <a href="/train-updates" class="btn-primary">View Train Updates</a>
+            </main>
+        </div>
+
+        <div class="section">
+            <h2>Wheelchair Assistance</h2>
+            <img src="static/images/wheel.jpg" alt="Live Train Updates">
+            <p>accessibility for differently-abled individuals.</p>
+            <main>
+                <a href="/wheel" class="btn-primary">Wheelchair Booking</a>
+            </main>
+        </div>
+
+        <div class="section">
+            <h2>Nearby Attractions</h2>
+            <img src="static/images/att.jpg" alt="Attractions">
+            <p>Explore famous landmarks near the station.</p>
+            <a href="/tourist-attractions" class="btn-primary">View Attractions</a>
+        </div>
+
+        <div class="section">
+            <h2>Hotels</h2>
+            <img src="static/images/hot.jpg" alt="Hotels">
+            <p>Discover comfortable stays near the station.</p>
+            <a href="/hotels" class="btn-primary">View Hotels</a>
+        </div>
+
+        <div class="section">
+            <h2>Restaurants</h2>
+            <img src="static/images/restaurant.jpg" alt="Restaurants">
+            <p>Find amazing food options nearby.</p>
+            <a href="/restaurants" class="btn-primary">View Restaurants</a>
+        </div>
+
+        <div class="section">
+            <h2>Feedback</h2>
+            <img src="static/images/feed.jpg" alt="Feedback">
+            <p>Share your experience with us.</p>
+            <a href="/feedback" class="btn-primary">Leave Feedback</a>
+        </div>
+
+        <div class="section">
+            <h2>Contact Us</h2>
+            <img src="static/images/contact.jpg" alt="Contact">
+            <p>We’d love to hear from you!</p>
+            <a href="/contact" class="btn-primary">Contact Us</a>
+        </div>
+    </div>
+
+    <div id="ease-bot">
+        <div id="bot-header">Ease - Your Assistant</div>
+        <div id="bot-body">
+            <div id="bot-messages"></div>
+            <input type="text" id="bot-input" placeholder="Type your message..." />
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("bot-header").addEventListener("click", function() {
+            var botBody = document.getElementById("bot-body");
+            botBody.style.display = botBody.style.display === "none" ? "block" : "none";
+        });
+    </script>
+</body>
+</html>
+
